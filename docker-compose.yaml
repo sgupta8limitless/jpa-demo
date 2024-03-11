@@ -1,0 +1,29 @@
+version: '3.7'
+
+services:
+  postgres:
+    image: postgres:latest
+    container_name: bajajmall-db
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_DB: bajajmall
+      POSTGRES_USER: saurabh
+      POSTGRES_PASSWORD: saurabh
+    volumes:
+      - C:\Users\SAURABH\Desktop\postgres-data:/var/lib/postgresql/data
+
+  app:
+    image: bajajmall-app-image
+    build: .
+    container_name: bajajmall-app
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/bajajmall
+      SPRING_DATASOURCE_USERNAME: saurabh
+      SPRING_DATASOURCE_PASSWORD: saurabh
+    restart: always
+
