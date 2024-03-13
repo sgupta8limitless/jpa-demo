@@ -4,7 +4,7 @@ package com.example.jpademo;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-//hello
+//hello hi
 
 @SpringBootApplication
 public abstract class JpaDemoApplication {
